@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Gordon Group Services LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --gg-cream: #f6efdf;   /* background */
+      --gg-gold:  #e2a029;   /* logo gold */
+      --gg-navy:  #16324f;   /* dark blue text */
+      --gg-text:  #1e3244;
+      --gg-muted: #657187;
+      --gg-card:  #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--gg-cream);
+      color: var(--gg-text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--gg-navy);
+      text-decoration: none;
+    }
+
+    /* HEADER / NAV */
+    header {
+      background-color: var(--gg-cream);
+      border-bottom: 1px solid rgba(22, 50, 79, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      height: 42px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .brand-text {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gg-navy);
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 16px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gg-navy);
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gg-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--gg-navy);
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--gg-muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border: 1px solid var(--gg-navy);
+    }
+
+    .btn-primary {
+      background-color: var(--gg-navy);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--gg-navy);
+    }
+
+    .btn-ghost:hover {
+      background-color: rgba(22, 50, 79, 0.07);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--gg-muted);
+    }
+
+    .hero-card {
+      background-color: var(--gg-card);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(22, 50, 79, 0.12);
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      color: var(--gg-navy);
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 0.88rem;
+      color: var(--gg-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .stat-pill {
+      background-color: rgba(226, 160, 41, 0.08);
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(226, 160, 41, 0.35);
+      color: var(--gg-navy);
+      font-weight: 500;
+    }
+
+    /* SECTION GENERIC */
+    section {
+      margin-top: 40px;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      color: var(--gg-navy);
+      margin-bottom: 6px;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--gg-muted);
+      max-width: 700px;
+      margin-bottom: 18px;
+    }
+
+    /* DIVISION CARDS */
+    .division-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .division-card {
+      background-color: var(--gg-card);
+      border-radius: 12px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(22, 50, 79, 0.12);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .division-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gg-muted);
+      margin-bottom: 4px;
+    }
+
+    .division-card h3 {
+      font-size: 1.05rem;
+      color: var(--gg-navy);
+      margin-bottom: 4px;
+    }
+
+    .division-card p {
+      font-size: 0.88rem;
+      color: var(--gg-muted);
+      margin-bottom: 6px;
+    }
+
+    .division-meta {
+      font-size: 0.8rem;
+      color: var(--gg-muted);
+    }
+
+    .division-link {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gg-navy);
+    }
+
+    .division-link span {
+      font-size: 1rem;
+      margin-left: 3px;
+    }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      background-color: rgba(226, 160, 41, 0.12);
+      border-radius: 12px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(226, 160, 41, 0.45);
+      font-size: 0.9rem;
+      color: var(--gg-text);
+    }
+
+    .about-strip strong {
+      color: var(--gg-navy);
+    }
+
+    /* CONTACT PREVIEW */
+    .contact-preview {
+      background-color: var(--gg-card);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid rgba(22, 50, 79, 0.12);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .contact-note {
+      font-size: 0.82rem;
+      color: var(--gg-muted);
+      margin-top: 6px;
+    }
+
+    .contact-mini-form label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 2px;
+      color: var(--gg-muted);
+    }
+
+    .contact-mini-form input,
+    .contact-mini-form select {
+      width: 100%;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(22, 50, 79, 0.18);
+      font-size: 0.85rem;
+      background-color: #faf7f1;
+      color: var(--gg-text);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(22, 50, 79, 0.12);
+      font-size: 0.78rem;
+      color: var(--gg-muted);
+      text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-preview {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      nav a {
+        margin-left: 10px;
+        margin-top: 4px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- your uploaded logo -->
+        <img src="img/535F416F-5600-4893-B50A-3AF5570127E9.png" alt="The Gordon Group Logo">
+        <div class="brand-text">
+          The Gordon Group<br>
+          Services LLC
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="courier.html">Courier Services</a>
+        <a href="automotive.html">Automotive</a>
+        <a href="nationbusiness.html">Nation Business</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Multi-service mock brand</div>
+        <h1>The Gordon Group Services LLC</h1>
+        <p>
+          The Gordon Group Services LLC is a demo company used to showcase web design,
+          branding, and business structure. Under one umbrella, it models how multiple
+          service lines can live together: courier work, automotive services, and media.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#divisions" class="btn-primary">View Divisions</a>
+          <a href="courier.html" class="btn-ghost">Go to Courier Site</a>
+        </div>
+
+        <p class="hero-note">
+          This site is for <strong>presentation & portfolio</strong> only. It does not
+          represent an active, registered business – it’s a structured mock-up for class
+          and career demonstrations.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h2>What this homepage represents</h2>
+        <p>
+          This page acts as the “parent company” dashboard. Each card below links to a
+          separate HTML page for one division of The Gordon Group.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-pill">Courier & Same-Day Delivery</div>
+          <div class="stat-pill">Mobile Automotive Services</div>
+          <div class="stat-pill">Media & Brand (Nation Business)</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- DIVISIONS -->
+    <section id="divisions">
+      <h2>Core Divisions</h2>
+      <p class="section-intro">
+        Use these divisions in your presentation to walk through how one LLC can host
+        multiple service lines. Each division has its own page, services, and contact
+        flow, but they all share the same Gordon Group identity.
+      </p>
+
+      <div class="division-grid">
+        <!-- Courier -->
+        <article class="division-card">
+          <div>
+            <div class="division-tag">Division 01</div>
+            <h3>Gordon Group Mobile Courier & Delivery</h3>
+            <p>
+              A mock courier operation focused on medical runs, same-day retail
+              deliveries, and contract routes across the Kansas City metro.
+            </p>
+            <div class="division-meta">
+              • Services page with pricing mock<br>
+              • Service area map/list<br>
+              • Quote request form
+            </div>
+          </div>
+          <a href="courier.html" class="division-link">
+            Open Courier Site <span>&rarr;</span>
+          </a>
+        </article>
+
+        <!-- Automotive -->
+        <article class="division-card">
+          <div>
+            <div class="division-tag">Division 02</div>
+            <h3>Gordon Group Automotive</h3>
+            <p>
+              A mobile automotive services brand showcasing oil changes, brake jobs,
+              and basic maintenance as if booked like a professional service.
+            </p>
+            <div class="division-meta">
+              • Services list & sample packages<br>
+              • Mobile-only service model<br>
+              • Simple booking walkthrough
+            </div>
+          </div>
+          <a href="automotive.html" class="division-link">
+            Open Automotive Page <span>&rarr;</span>
+          </a>
+        </article>
+
+        <!-- Nation Business -->
+        <article class="division-card">
+          <div>
+            <div class="division-tag">Division 03</div>
+            <h3>Nation Business United</h3>
+            <p>
+              The creative/media side: music production, branding, and content. This
+              page can later embed beats, visuals, and your producer identity.
+            </p>
+            <div class="division-meta">
+              • Brand story + logo showcase<br>
+              • Room for YouTube embeds<br>
+              • Future services: mixing, beats, visuals
+            </div>
+          </div>
+          <a href="nationbusiness.html" class="division-link">
+            Open Nation Business Page <span>&rarr;</span>
+          </a>
+        </article>
+
+        <!-- Future -->
+        <article class="division-card">
+          <div>
+            <div class="division-tag">Division 04</div>
+            <h3>Future Services / Expansion</h3>
+            <p>
+              A placeholder tile you can use in presentations to talk about possible
+              future offerings: dispatch services, consulting, or training.
+            </p>
+            <div class="division-meta">
+              • Currently a static card<br>
+              • Can link to a new page later<br>
+              • Great talking point for “vision”
+            </div>
+          </div>
+          <div class="division-link" style="opacity:0.6;">
+            Coming soon
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="about-strip">
+        <strong>How to explain this to an instructor or employer:</strong><br>
+        “This is a mock multi-division company I built to show that I understand how
+        a real LLC might structure different lines of business. Each division has its
+        own page with services, pricing examples, and forms, but the design and colors
+        stay consistent with The Gordon Group brand.”
+      </div>
+    </section>
+
+    <section id="contact-preview">
+      <h2>Central Contact (Preview)</h2>
+      <p class="section-intro">
+        The full contact form can live on <code>contact.html</code>. This preview just
+        shows how a visitor could choose which division they’re reaching out to.
+      </p>
+
+      <div class="contact-preview">
+        <div>
+          <p>
+            In your real contact page, you’ll route all inquiries through one place and
+            let the user pick the division they need. That makes The Gordon Group feel
+            like one coordinated company instead of disconnected projects.
+          </p>
+          <p class="contact-note">
+            Tip for your presentation: walk through how someone might choose “Courier
+            Services” here and then see a follow-up on the courier page with more
+            specific questions.
+          </p>
+        </div>
+
+        <form class="contact-mini-form">
+          <label for="cp-name">Name</label>
+          <input id="cp-name" type="text" placeholder="Your name">
+
+          <label for="cp-division">Division</label>
+          <select id="cp-division">
+            <option>Gordon Group Courier</option>
+            <option>Gordon Group Automotive</option>
+            <option>Nation Business United</option>
+            <option>General Question</option>
+          </select>
+
+          <label for="cp-email">Email</label>
+          <input id="cp-email" type="email" placeholder="you@example.com">
+
+          <button type="button" class="btn-primary" style="width:100%; margin-top:4px;">
+            Open Full Contact Page
+          </button>
+          <div class="contact-note">
+            Button is for demo only. The real form will live on <strong>contact.html</strong>.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      The Gordon Group Services LLC · Mock multi-division brand for portfolio &amp; presentation use · Built with HTML &amp; CSS
+    </footer>
+  </main>
+</body>
+</html>
