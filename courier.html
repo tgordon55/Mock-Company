@@ -59,7 +59,36 @@
             line-height: 1.6;
         }
 
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            border-top: 3px solid orange;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: center;
+}
 
+        .service-card h3 {
+            color: navy;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+}
+
+        .service-card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+}
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+}
         
     </style>
 </head>
@@ -85,9 +114,21 @@
     </section>
 
     <section class="services">
-    <div class="services-grid">
-        <!-- service cards go here -->
-    </div>
+    <div class="service-card">
+    <h3>Express Pickup & Delivery</h3>
+    <p>Fast direct pickup and drop-off anywhere in the KC Metro.</p>
+</div>
+
+<div class="service-card">
+    <h3>Local Parcel Dropoff</h3>
+    <p>Reliable dropoff for packages, documents, and small goods.</p>
+</div>
+
+<div class="service-card">
+    <h3>Medical Courier Services</h3>
+    <p>Secure and confidential transport for medical items.</p>
+</div>
+        
 </section>
 
     <section class="coverage">
