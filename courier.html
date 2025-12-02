@@ -124,6 +124,58 @@
             grid-template-columns: 1fr;
     }
 }
+        footer {
+            padding: 60px 0;
+            background-color: navy;
+            color: white;
+            text-align: center;
+}
+
+    /* footer logo */
+        .footer-top img {
+        width: 120px;
+        margin-bottom: 20px;
+}
+
+    /* phone + links wrapper */
+    .footer-middle {
+        margin-top: 10px;
+}
+
+    /* phone line */
+    .footer-middle p {
+        margin: 8px 0 12px;
+        font-size: 16px;
+}
+
+    /* horizontal links */
+    .footer-middle ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+}
+
+    /* footer links */
+    .footer-middle a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: uppercase;
+}
+
+    .footer-middle a:hover {
+        color: orange;
+}
+
+    /* copyright line */
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 14px;
+    opacity: 0.9;
+}
     </style>
 </head>
 
@@ -165,7 +217,7 @@
         
 </section>
 
-    <section class="coverage">
+    <section class="coverage" id="coverage">
     <div class="coverage-columns">
 
         <div class="left-column">
@@ -188,6 +240,24 @@
     </div>
 </section>
 
+    <footer>
+    <div class="footer-top">
+        <img src="img/courier-logo.png" alt="Gordon Group Courier Logo">
+    </div>
+
+    <div class="footer-middle">
+        <p>(555) 123-4567</p>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courier.html">Services</a></li>
+            <li><a href="#coverage">Coverage</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Gordon Group Services LLC ©</p>
+    </div>
+</footer>
 </main>
 </body>
 </html>
