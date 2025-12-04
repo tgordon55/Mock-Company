@@ -343,34 +343,29 @@
     </div>
 </footer>
 </main>
-   <script>
-  const selector = document.getElementById('service-select');
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const select = document.getElementById('serviceSelect');
+    const cards  = document.querySelectorAll('.service-card');
 
-  selector.addEventListener('change', function () {
-    const value = this.value;
-    if (!value) return;
+    if (!select) return;
 
-    // If your card IDs are: express-card, parcel-card, medical-card
-    const card = document.getElementById(value + '-card');
+    select.addEventListener('change', function () {
+        const id = this.value;
+        if (!id) return;
 
-    if (card) {
-      // Scroll to the card
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Remove highlight from all cards
+        cards.forEach(card => card.classList.remove('selected'));
 
-      // Remove highlight from any previously highlighted card
-      document
-        .querySelectorAll('.service-card.highlight')
-        .forEach(el => el.classList.remove('highlight'));
+        // Find the card that matches the dropdown value
+        const target = document.getElementById(id);
+        if (!target) return;
 
-      // Add highlight to this card
-      card.classList.add('highlight');
-
-      // Remove highlight after 900ms
-      setTimeout(() => {
-        card.classList.remove('highlight');
-      }, 900);
-    }
-  });
+        // Add highlight + scroll into view
+        target.classList.add('selected');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+});
 </script>
 </body>
 </html>
