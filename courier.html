@@ -116,26 +116,23 @@
 }
 
         /* Highlight style when a card is selected from the dropdown */
-    .service-card.selected {
-        box-shadow: 0 0 0 3px #ffb347, 0 10px 25px rgba(0,0,0,0.25);
-        transform: translateY(-4px);
-        transition: box-shadow 0.25s ease, transform 0.25s ease;
+    /* Highlight style when a card is selected from the dropdown */
+.service-card.selected {
+    border-color: #ffb347;                 /* stronger orange border */
+    box-shadow:
+        0 0 0 3px #ffb347,                 /* orange outline ring */
+        0 18px 40px rgba(0, 0, 0, 0.35);   /* deeper drop shadow */
+    transform: translateY(-6px) scale(1.02);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
-    .service-card.highlight {
-        box-shadow: 0 0 0 3px #ffb347, 0 10px 25px rgba(0,0,0,0.28);
-        transform: translateY(-4px);
-}
+    
         /* Hover glow */
 .service-card:hover {
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     transform: translateY(-4px);
 }
 
-/* Temporary highlight when selected from dropdown */
-.service-card.highlight {
-    box-shadow: 0 0 0 3px orange, 0 14px 32px rgba(0,0,0,0.3);
-    transform: translateY(-4px);
-}
+/
         .service-card h3 {
             color: navy;
             font-size: 22px;
