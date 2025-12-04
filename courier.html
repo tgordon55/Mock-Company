@@ -59,6 +59,31 @@
             line-height: 1.6;
         }
 
+     .service-select {
+        max-width: 500px;
+        margin: 0 auto 30px;
+        text-align: center;
+}
+
+    .service-select h3 {
+        color: navy;
+        font-size: 22px;
+        margin-bottom: 8px;
+}
+
+    .service-select p {
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 12px;
+}
+
+    .service-select select {
+        padding: 10px 14px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 2px solid navy;
+        background-color: #ffffff;
+}
         .service-card {
             background-color: white;
             padding: 20px;
@@ -202,18 +227,30 @@
         <p>Your reliable delivery partner.</p>
     </section>
 
+    
+    <section class="service-select">
+        <h3>Select a Service</h3>
+        <p>Choose a service to jump to more details:</p>
+        <select onchange="if (this.value) location.hash = this.value;">
+        <option value="">-- Select a service --</option>
+        <option value="#express">Express Pickup & Delivery</option>
+        <option value="#parcel">Local Parcel Dropoff</option>
+        <option value="#medical">Medical Courier Services</option>
+    </select>
+</section>
+
     <section class="services">
-    <div class="service-card">
+    <div class="service-card" id="express">
     <h3>Express Pickup & Delivery</h3>
     <p>Fast direct pickup and drop-off anywhere in the KC Metro.</p>
 </div>
 
-<div class="service-card">
+<div class="service-card" id="parcel">
     <h3>Local Parcel Dropoff</h3>
     <p>Reliable dropoff for packages, documents, and small goods.</p>
 </div>
 
-<div class="service-card">
+<div class="service-card" id="medical">
     <h3>Medical Courier Services</h3>
     <p>Secure and confidential transport for medical items.</p>
 </div>
