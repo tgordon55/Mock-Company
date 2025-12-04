@@ -112,9 +112,13 @@
         border-radius: 8px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         text-align: center;
-        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+    .service-card.highlight {
+        box-shadow: 0 0 0 3px #ffb347, 0 10px 25px rgba(0,0,0,0.28);
+        transform: translateY(-4px);
+}
         /* Hover glow */
 .service-card:hover {
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
@@ -341,12 +345,33 @@
 </footer>
 </main>
    <script>
-document.getElementById("serviceSelect").addEventListener("change", function () {
-    const section = document.querySelector(this.value);
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+  const selector = document.getElementById('service-select');
+
+  selector.addEventListener('change', function () {
+    const value = this.value;
+    if (!value) return;
+
+    // If your card IDs are: express-card, parcel-card, medical-card
+    const card = document.getElementById(value + '-card');
+
+    if (card) {
+      // Scroll to the card
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Remove highlight from any previously highlighted card
+      document
+        .querySelectorAll('.service-card.highlight')
+        .forEach(el => el.classList.remove('highlight'));
+
+      // Add highlight to this card
+      card.classList.add('highlight');
+
+      // Remove highlight after 900ms
+      setTimeout(() => {
+        card.classList.remove('highlight');
+      }, 900);
     }
-});
+  });
 </script>
 </body>
 </html>
