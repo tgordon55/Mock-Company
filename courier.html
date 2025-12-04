@@ -87,6 +87,24 @@
         border: 2px solid navy;
         background-color: #ffffff;
 }
+
+    .service-selector {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+}
+
+.service-selector select {
+    padding: 10px 18px;
+    font-size: 16px;
+    border: 2px solid navy;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+        
     .service-card {
         background-color: white;
         padding: 20px;
@@ -241,7 +259,15 @@
         <h2>Courier Services</h2>
         <p>Your reliable delivery partner.</p>
     </section>
-
+    
+    <div class="service-selector">
+        <p>Select a Service</p>
+        <select id="serviceSelect">
+        <option value="#express">Express Pickup & Delivery</option>
+        <option value="#parcel">Local Parcel Dropoff</option>
+        <option value="#medical">Medical Courier Services</option>
+    </select>
+</div>
     
     <section class="service-selector">
     <h3>Select a Service</h3>
@@ -256,17 +282,17 @@
 </section>
 
     <section class="services">
-    <div class="service-card" id="express-card">
+    <div class="service-card" id="express">
         <h3>Express Pickup & Delivery</h3>
         <p>Fast direct pickup and drop-off anywhere in the KC Metro.</p>
     </div>
 
-    <div class="service-card" id="parcel-card">
+    <div class="service-card" id="parcel">
         <h3>Local Parcel Dropoff</h3>
         <p>Reliable dropoff for packages, documents, and small goods.</p>
     </div>
 
-    <div class="service-card" id="medical-card">
+    <div class="service-card" id="medical">
         <h3>Medical Courier Services</h3>
         <p>Secure and confidential transport for medical items.</p>
     </div>
@@ -314,36 +340,12 @@
     </div>
 </footer>
 </main>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const select = document.getElementById('serviceSelect');
-
-    const targets = {
-        express: document.getElementById('express-card'),
-        parcel: document.getElementById('parcel-card'),
-        medical: document.getElementById('medical-card')
-    };
-
-    if (!select) return;
-
-    select.addEventListener('change', function () {
-        const key = select.value;
-        if (!key || !targets[key]) return;
-
-        const card = targets[key];
-
-        // Scroll card into view (smooth is handled by CSS too)
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Clear previous highlights
-        Object.values(targets).forEach(el => el.classList.remove('highlight'));
-
-        // Add highlight briefly
-        card.classList.add('highlight');
-        setTimeout(() => {
-            card.classList.remove('highlight');
-        }, 1200);
-    });
+   <script>
+document.getElementById("serviceSelect").addEventListener("change", function () {
+    const section = document.querySelector(this.value);
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+    }
 });
 </script>
 </body>
