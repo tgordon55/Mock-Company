@@ -1,6 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
+<style>
+  /* Base table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    background: #111;
+    color: #fff;
+    text-align: left;
+    padding: 12px;
+  }
+
+  td, th {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Category row base */
+  tr.category th {
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+  }
+
+  /* Category colors */
+  tr.category.engine th {
+    background: #C9A227; /* Gold */
+  }
+
+  tr.category.brake th {
+    background: #6B1E1E; /* Maroon */
+  }
+
+  tr.category.electrical th {
+    background: #0D6EFD; /* Electric Blue */
+  }
+
+  tr.category.diagnostics th {
+    background: #6C757D; /* Silver/Gray */
+  }
+
+  tr.category.fluids th {
+    background: #2E8B57; /* Green */
+  }
+
+  tr.category.tires th {
+    background: #0F766E; /* Dark Teal */
+  }
+
+  /* Optional: subtle row hover for readability */
+  tbody tr:not(.category):hover {
+    background: #f7f7f7;
+  }
+</style>
+	  
 <title>Gordon Group Auto Care</title>
  </head>
   <body>
@@ -76,11 +134,12 @@
 			<th>Sedan</th>
 			<th>SUV/Truck</th>
 		</tr>
+		</thead>
   		
 	<tbody>
 	<!-- ENGINE MAINTENANCE-->
 	<tr class="category engine">
-  <th colspan="3">Engine Maintenence</th>
+  <th colspan="3">Engine Maintenance</th>
 </tr>
   <tr>
     <td>Oil Change (Customer Provides Parts)</td>
@@ -101,7 +160,7 @@
 	</tr>
 
 <!-- Tires & Tire Care -->
-<tr class="category Tires">
+<tr class="category tires">
   <th colspan="3">Tires & Tire Care</th>
 </tr>
 <tr>
@@ -116,8 +175,8 @@
 </tr>
 <tr>
   <td>Tire Pressure Check</td>
-  <td>$0</td>
-  <td>$0</td>
+  <td>included</td>
+  <td>included</td>
 </tr>
 
 <!-- BRAKE SERVICES-->
@@ -144,7 +203,7 @@
 	</tr>
 
 	<tr>
-		<td>Full Brake Job (all four wheels</td>
+		<td>Full Brake Job (all four wheels)</td>
 		<td>$300</td>
 		<td>$360</td>
 	</tr>
